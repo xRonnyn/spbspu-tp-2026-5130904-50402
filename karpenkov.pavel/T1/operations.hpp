@@ -1,0 +1,11 @@
+#ifndef OPERATIONS_HPP
+#define OPERATIONS_HPP
+#include <iostream>
+#include "note.hpp"
+#include <unordered_map>
+namespace karpenkov
+{
+  using mapOfNotes = std::unordered_map< std::string, std::shared_ptr< Note > >;
+  void addNote(std::istream &in, std::ostream &, mapOfNotes &notes);
+}
+#endif
