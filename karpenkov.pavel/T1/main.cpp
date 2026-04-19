@@ -1,4 +1,19 @@
 #include <iostream>
+#include "operations.hpp"
+#include <unordered_map>
 
 int main()
-{}
+{
+  std::unordered_map< std::string, void (*)(std::istream &, std::ostream &, karpenkov::mapOfNotes &) > listOfCommands{
+      {"note", karpenkov::addNote}};
+  karpenkov::mapOfNotes notes;
+  std::string command;
+  while (std::cin >> command) {
+    try {
+      listOfCommands.at(command)(std::cin, std::cout, notes);
+    } catch (...) {
+      std::cout << "<INVALID COMMAND>";
+    }
+  }
+  return 0;
+}
