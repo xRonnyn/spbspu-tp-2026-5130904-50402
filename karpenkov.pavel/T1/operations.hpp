@@ -7,5 +7,6 @@ namespace karpenkov
 {
   using mapOfNotes = std::unordered_map< std::string, std::shared_ptr< Note > >;
   void addNote(std::istream &in, std::ostream &, mapOfNotes &notes);
+  void addLine(std::istream &in, std::ostream &, mapOfNotes &notes);
 }
 #endif

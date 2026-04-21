@@ -17,4 +17,19 @@ namespace karpenkov
     std::shared_ptr< Note > newNote = std::make_shared< Note >(name);
     notes[name] = newNote;
   }
+  void addLine(std::istream &in, std::ostream &, mapOfNotes &notes)
+  {
+    std::string name;
+    std::string quote;
+    in >> name;
+    if (name.empty()) {
+      throw std::runtime_error("empty arguments for line");
+    }
+    if (notes.find(name) == notes.cend()) {
+      throw std::runtime_error("note with such name doesn't exist");
+    }
+    in >> quote;
+    Note neededNote = notes.find(name)->first;
+    neededNote.newLine(quote);
+  }
 }

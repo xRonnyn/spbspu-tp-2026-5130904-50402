@@ -9,6 +9,10 @@ namespace karpenkov
   public:
     Note(const std::string &name):
       name(name) {};
+    void newLine(std::string &quote)
+    {
+      lines.push_back("\"\"" + quote + "\"\"");
+    }
 
   private:
     std::string name;
