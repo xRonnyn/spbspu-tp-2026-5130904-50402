@@ -11,12 +11,12 @@ namespace karpenkov
       name(name) {};
     void newLine(std::string &quote)
     {
-      lines.push_back("\"" + quote + "\"");
+      lines.push_back("\"" + quote.substr(1, quote.size() - 1) + "\"");
     }
     void printNote()
     {
       for (size_t i = 0; i < lines.size(); ++i) {
-        std::cout << lines[i];
+        std::cout << lines[i] << '\n';
       }
     }
 
