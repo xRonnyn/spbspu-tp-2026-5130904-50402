@@ -29,8 +29,8 @@ namespace karpenkov
       throw std::runtime_error("note with such name doesn't exist");
     }
     in >> quote;
-    Note neededNote = notes.find(name)->first;
-    neededNote.newLine(quote);
+    std::shared_ptr< Note > neededNote = notes.at(name);
+    neededNote->newLine(quote);
   }
   void showNote(std::istream &in, std::ostream &out, mapOfNotes &notes)
   {
@@ -42,7 +42,7 @@ namespace karpenkov
     if (notes.find(name) == notes.cend()) {
       throw std::runtime_error("note with such name doesn't exist");
     }
-    Note neededNote = notes.find(name)->first;
-    neededNote.printNote();
+    std::shared_ptr< Note > neededNote = notes.at(name);
+    neededNote->printNote();
   }
 }

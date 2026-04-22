@@ -5,7 +5,7 @@
 int main()
 {
   std::unordered_map< std::string, void (*)(std::istream &, std::ostream &, karpenkov::mapOfNotes &) > listOfCommands{
-      {"note", karpenkov::addNote}};
+      {"note", karpenkov::addNote}, {"line", karpenkov::addLine}, {"show", karpenkov::showNote}};
   karpenkov::mapOfNotes notes;
   std::string command;
   while (std::cin >> command) {
