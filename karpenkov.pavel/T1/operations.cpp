@@ -32,4 +32,17 @@ namespace karpenkov
     Note neededNote = notes.find(name)->first;
     neededNote.newLine(quote);
   }
+  void showNote(std::istream &in, std::ostream &out, mapOfNotes &notes)
+  {
+    std::string name;
+    in >> name;
+    if (name.empty()) {
+      throw std::runtime_error("empty name argument for showNote");
+    }
+    if (notes.find(name) == notes.cend()) {
+      throw std::runtime_error("note with such name doesn't exist");
+    }
+    Note neededNote = notes.find(name)->first;
+    neededNote.printNote();
+  }
 }
