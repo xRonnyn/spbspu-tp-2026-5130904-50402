@@ -11,7 +11,7 @@ namespace karpenkov
       name(name) {};
     void newLine(std::string &quote)
     {
-      lines.push_back("\"\"" + quote + "\"\"");
+      lines.push_back("\"" + quote + "\"");
     }
     void printNote()
     {

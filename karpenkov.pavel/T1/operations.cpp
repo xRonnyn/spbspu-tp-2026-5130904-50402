@@ -28,7 +28,7 @@ namespace karpenkov
     if (notes.find(name) == notes.cend()) {
       throw std::runtime_error("note with such name doesn't exist");
     }
-    in >> quote;
+    std::getline(in, quote);
     std::shared_ptr< Note > neededNote = notes.at(name);
     neededNote->newLine(quote);
   }
