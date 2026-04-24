@@ -19,8 +19,7 @@ namespace karpenkov
   }
   void addLine(std::istream &in, std::ostream &, mapOfNotes &notes)
   {
-    std::string name;
-    std::string quote;
+    std::string name, quote;
     in >> name;
     if (name.empty()) {
       throw std::runtime_error("empty arguments for line");
@@ -56,5 +55,16 @@ namespace karpenkov
     }
     std::shared_ptr< Note > neededNote = notes.at(name);
     neededNote->printNote();
+  }
+  void addLink(std::istream &in, std::ostream &, mapOfNotes &notes)
+  {
+    std::string noteTo, noteFrom;
+    in >> noteFrom;
+    in >> noteTo;
+    if (notes.find(noteFrom) == notes.cend() || notes.find(noteTo) == notes.cend()) {
+      throw std::runtime_error("no such note");
+    }
+    std::shared_ptr< Note > neededNote = notes.at(noteFrom);
+    neededNote->createLink(notes.at(noteTo));
   }
 }

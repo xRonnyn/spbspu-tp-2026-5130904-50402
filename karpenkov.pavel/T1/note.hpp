@@ -1,6 +1,7 @@
 #ifndef NOTE_HPP
 #define NOTE_HPP
 #include <iostream>
+#include <memory>
 
 namespace karpenkov
 {
@@ -18,6 +19,16 @@ namespace karpenkov
       for (size_t i = 0; i < lines.size(); ++i) {
         std::cout << lines[i] << '\n';
       }
+    }
+    void createLink(std::shared_ptr< Note > to)
+    {
+      for (size_t i = 0; i < links.size(); ++i) {
+        std::shared_ptr< Note > sp = links[i].lock();
+        if (sp == to) {
+          return;
+        }
+      }
+      links.push_back(to);
     }
 
   private:
