@@ -9,5 +9,6 @@ namespace karpenkov
   void addNote(std::istream &in, std::ostream &, mapOfNotes &notes);
   void addLine(std::istream &in, std::ostream &, mapOfNotes &notes);
   void showNote(std::istream &in, std::ostream &out, mapOfNotes &notes);
+  void dropNote(std::istream &in, std::ostream &, mapOfNotes &notes);
 }
 #endif

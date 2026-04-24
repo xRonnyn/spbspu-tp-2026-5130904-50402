@@ -32,6 +32,18 @@ namespace karpenkov
     std::shared_ptr< Note > neededNote = notes.at(name);
     neededNote->newLine(quote);
   }
+  void dropNote(std::istream &in, std::ostream &, mapOfNotes &notes)
+  {
+    std::string name;
+    in >> name;
+    if (name.empty()) {
+      throw std::runtime_error("empty argument for deleting note");
+    }
+    if (notes.find(name) == notes.cend()) {
+      throw std::runtime_error("note with such name doesn't exist");
+    }
+    notes.erase(name);
+  }
   void showNote(std::istream &in, std::ostream &out, mapOfNotes &notes)
   {
     std::string name;

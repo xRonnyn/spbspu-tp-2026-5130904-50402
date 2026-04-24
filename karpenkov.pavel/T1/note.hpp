@@ -23,6 +23,7 @@ namespace karpenkov
   private:
     std::string name;
     std::vector< std::string > lines;
+    std::vector< std::weak_ptr< Note > > links;
   };
 }
 
